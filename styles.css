@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffe6ff; /* Light pink background */
+}
+.container {
+    position: relative;
+}
+.jigglypuff {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: pink; /* Pink color for Jigglypuff */
+    border-radius: 50%; /* Rounded shape */
+    animation: moveJigglypuff 10s linear infinite, zoomJigglypuff 5s linear infinite; /* Adjust timing and animation path as needed */
+}
+.eye {
+    position: absolute;
+    background-color: #7fa3ff; /* Light green color for eyes */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    animation: blink 4s infinite; /* Blinking animation */
+}
+
+/* Left Eye */
+.left-eye {
+    top: 30px;
+    left: 25px;
+    box-shadow: 0 0 2px #000000; /* Glow effect */
+}
+
+/* Right Eye */
+.right-eye {
+    top: 30px;
+    left: 55px;
+    box-shadow: 0 0 2px #000000; /* Glow effect */
+}
+
+/* Pupil */
+.eye::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(0, 0, 0); /* Black color for pupil */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* White Dot for Eyes */
+.eye::after {
+    content: "";
+    position: absolute;
+    background-color: white; /* White color for highlight */
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    top: 20%;
+    left: 20%;
+}
+
+/* Smile */
+.smile {
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 60% 60%; /* Adjust the border-radius to make it look like a smile */
+    transform: rotate(-7deg); /* Adjust rotation for better smile shape */
+    top: 60px;
+    left: 40px;
+}
+
+/* Ears */
+.ear-left,
+.ear-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 50px 30px; /* Adjust the values to change ear size */
+    border-color: transparent transparent pink transparent;
+    transform: rotate(-45deg);
+    transform-origin: bottom;
+}
+
+/* Left Ear */
+.ear-left {
+    top: -15px;
+    left: 5px;
+}
+
+/* Right Ear */
+.ear-right {
+    top: -15px;
+    left: 65px;
+}
+
+/* Paws */
+.paw {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: pink;
+    animation: appearPaw 5s linear infinite;
+}
+
+/* Left Paw */
+.left-paw {
+    top: 70px;
+    left: 10px;
+}
+
+/* Right Paw */
+.right-paw {
+    top: 70px;
+    right: 10px;
+}
+
+
+
+@keyframes moveJigglypuff {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        transform: translate(-30%, -30%);
+    }
+    50% {
+        transform: translate(30%, 30%);
+    }
+    75% {
+        transform: translate(-30%, 30%);
+    }
+}
+
+@keyframes zoomJigglypuff {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+@keyframes blink {
+    0%, 90%, 100% {
+        height: 20px;
+    }
+    95% {
+        height: 0;
+    }
+}
+
+@keyframes appearPaw {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
